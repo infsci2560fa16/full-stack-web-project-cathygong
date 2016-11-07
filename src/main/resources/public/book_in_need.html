@@ -6,21 +6,41 @@
       onmouseover="clearhidemenu();highlightmenu(event,'on')"
       onmouseout="highlightmenu(event,'off');dynamichide(event)" style="Z-index:100;position:absolute;"></div>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script> 
-    $(function(){
-      $("#includedContent").load("navigation.html"); 
-    });
-</script>
-<!--<link rel="import" href="navigation.html">-->
 <title>iLibrary</title>
 <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 <table width="776" border="0" align="center" cellpadding="0" cellspacing="0" class="tableBorder">
   <tr>
     <td>
-      <div id="includedContent"></div>
-    </td>
+<table width="776" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="115" align="right" valign="bottom" background="Images/banner.gif" bgcolor="#FD9C11">
+    <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="26" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User: yug28</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="33" align="right" background="Images/menu_line1.gif" bgcolor="#FD9C11">
+    <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="5%"></td>
+        <td width="23%"><script type=text/javascript>
+		document.write("<span id='labtime' width='120px' Font-Size='9pt'></span>")
+		setInterval("labtime.innerText=new Date().toLocaleString()",1000)
+		</script></td>
+        <td width="70%" align="right">
+          <a href="index.html" class="a1">Home</a> |
+          <a  onmouseover=showmenu(event,readermenu) onmouseout=delayhidemenu()  style="CURSOR:hand" class="a1">My account</a> |
+          <a href="book_in_need.html" class="a1">Book in need</a> |
+          <a href="book_on_sale.html" class="a1" >Book on sale</a> | 
+          <a  href="pwd_modify.html" class="a1">Change password</a> | 
+          <a href="safequit.html" class="a1">Logout</a>
+          </td>
+        <td width="2%">&nbsp;</td>
+      </tr>
+    </table></td>
   </tr>
 </table>
     </td>
@@ -63,57 +83,9 @@
             </table></td>
           </tr>
           <tr>
-            <td  height="25" align="right">
-              <a href="book_in_need.html" class="a">More...</a>&nbsp;&nbsp;</td>
-          </tr>          
-          <tr>
             <td height="19" background="Images/book_on_sale_2.gif">&nbsp;</td>
           </tr>
         </table>
-
-<table width="738"  border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="753" height="44" background="Images/book_on_sale.gif">&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="72" valign="top" background="Images/book_on_sale_1.gif">
-            <table width="740"  border="1" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#D2E3E6" bordercolorlight="#FFFFFF">
-              <tr align="center">
-                <td width="20%" height="25"><b>Name</b></td>
-                <td width="10%"><b>Edition</b></td>
-                <td width="20%"><b>Author</b></td>
-                <td width="10%"><b>ISBN-13</b></td>
-                <td width="10%"><b>ISBN-10</b></td>
-                <td width="10%"><b>Condition</b></td>
-                <td width="10%"><b>Seller ID</b></td>
-                <td width="10%"><b>Post Time</b></td>
-              </tr>
-              <tr>
-                <td height="25" align="center">Database Management System</td>
-                <td style="center">3rd Edition</td>
-                <td style="center">Raghu Ramakrishnan, Johannes Gehrke</td>
-                <td style="center">978-9339213114</td>
-                <td align="center">9339213114</td>
-                <td align="center">Like new</td>
-                <td align="center">abc123</td>
-                <td align="center">2016-10-15</td>
-              </tr>
-            </table></td>           
-          </tr>
-          <tr>
-            <td  height="25" align="right">
-              <a href="book_on_sale.html" class="a">More...</a>&nbsp;&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="19" background="Images/book_on_sale_2.gif">&nbsp;</td>
-          </tr>
-        </table>
-
-
-
-
-
-
           </td>
       </tr>
     </table>
