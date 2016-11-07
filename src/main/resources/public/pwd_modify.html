@@ -1,4 +1,4 @@
-<?php session_start();?>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Change Password</title>
@@ -6,79 +6,78 @@
 <script src="js/pwd_modify.js" type="text/javascript"></script>
 </head>
 <body>
-<table width="776" border="0" align="center" cellpadding="0" cellspacing="0" class="tableBorder">
+<table style="width:776px; text-align:center" class="tableBorder">
   <tr>
     <td>
-
-  <table width="776" border="0" align="center" cellpadding="0" cellspacing="0">
+<table style="width:776px; text-align:center" border="0">
   <tr>
-    <td height="115" align="right" valign="bottom" background="Images/banner.gif" bgcolor="#FD9C11">
-    <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <td style="height:115px; text:right; vertical-align:botton; background-color:#FD9C11" background="Images/banner.gif">
+    <table style="width:100%"  border="0">
       <tr>
-        <td height="26" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User: yug28</td>
+        <td style="height:26px; text:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User: yug28</td>
       </tr>
     </table></td>
   </tr>
   <tr>
-    <td height="33" align="right" background="Images/menu_line1.gif" bgcolor="#FD9C11">
-    <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <td style="height=33px; text:right; background-color:#FD9C11" background="Images/menu_line1.gif">
+    <table style="width:100%"  border="0">
       <tr>
-        <td width="5%"></td>
-        <td width="23%"><script type=text/javascript>
+        <td style="width:5%"></td>
+        <td style="width:23%"><script type=text/javascript>
 		document.write("<span id='labtime' width='120px' Font-Size='9pt'></span>")
 		setInterval("labtime.innerText=new Date().toLocaleString()",1000)
 		</script></td>
-        <td width="70%" align="right">
+        <td style="width:70%; text:right">
           <a href="index.html" class="a1">Home</a> |
           <a  onmouseover=showmenu(event,readermenu) onmouseout=delayhidemenu()  style="CURSOR:hand" class="a1">My account</a> |
           <a href="book_in_need.html" class="a1">Book in need</a> |
-          <a href="book_in_need.html" class="a1" >Book on sale</a> | 
-          <a  href="pwd_Modify.html" class="a1">Change password</a> | 
+          <a href="book_on_sale.html" class="a1" >Book on sale</a> | 
+          <a  href="pwd_modify.html" class="a1">Change password</a> | 
           <a href="safequit.html" class="a1">Logout</a>
           </td>
-        <td width="2%">&nbsp;</td>
+        <td style="width:2%">&nbsp;</td>
       </tr>
     </table></td>
   </tr>
-</table>  
+</table> 
 	
 
 	</td>
 	</tr>
 	<td>
-	<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+	<table style="width:100%"  border="0">
   <tr>
-    <td valign="top" bgcolor="#FFFFFF"><table width="99%" height="510"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="tableBorder_gray">
+    <td style="vertical-align:top; background-color:#FFFFFF"><table style="width:99%; height=510px; float-align:center; background-color:#FFFFFF"  border="0" class="tableBorder_gray">
   <tr>
-    <td height="510" valign="top" style="padding:5px;"><table width="98%" height="487"  border="0" cellpadding="0" cellspacing="0">
+    <td style="height:510px; vertical-align:top; padding:5px"><table style="width=:98%; height=487px"  border="0">
       <tr>
-        <td align="center" valign="top">
- <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <td style="text-align:center; vertical-align:top">
+ <table style="width:100%"  border="0">
   <tr>
-    <td width="84%">&nbsp;      </td>
+    <td style="width:84%">&nbsp;      </td>
 </tr>
 </table>  
 <form  action="index.html" name="pwdForm"> 
-  <table width="47%"  border="0" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#D2E3E6" bordercolorlight="#FFFFFF">
-  <tr align="center">
-    <td width="27%" align="left" style="padding:5px;">User name:</td>
-    <td width="73%" align="left">
+  <table style="width:47%"  border="0" bordercolor="#FFFFFF" bordercolordark="#D2E3E6" bordercolorlight="#FFFFFF">
+  <tr style="text-align:center">
+    <td style="width:27%; text-align:left; padding:5px">User name:</td>
+    <td style="width:73%; text-align:left">
       <input name="email" type="text" id="email" value="yug28" readonly size="30"></td>
     </tr>      
     <tr>
-    <td align="left" style="padding:5px;">Old password:</td>
-    <td align="left"><input name="oldpwd" type="password" id="oldpwd" size="30"></td>
+    <td style="text-align:left; padding:5px">Old password:</td>
+    <td style="text-align:left"><input name="oldpwd" type="password" id="oldpwd" size="30"></td>
     </tr>
     <tr>
-      <td align="left" style="padding:5px;">New password:</td>
-      <td align="left"><input name="pwd" type="password" id="pwd" size="30"></td>
+      <td style="text-align:left; padding:5px">New password:</td>
+      <td style="text-align:left"><input name="pwd" type="password" id="pwd" size="30"></td>
     </tr>
     <tr>
-      <td align="left" style="padding:5px;">Re-enter new password:</td>
-      <td align="left"><input name="pwd1" type="password" id="pwd1" size="30"></td>
+      <td style="text-align:left; padding:5px">Re-enter new password:</td>
+      <td style="text-align:left"><input name="pwd1" type="password" id="pwd1" size="30"></td>
     </tr>
     <tr>
-      <td height="65" align="left" style="padding:5px;">&nbsp;</td>
+      <td style="height:65px; text-align:left; padding:5px;">&nbsp;</td>
       <td><input name="Submit" type="submit" class="btn_grey" value="Save" onClick="return checkForm()">
         &nbsp;
         <input name="Cancel" type="button" class="btn_grey" value="Cancel" onClick="window.close();"></td>
