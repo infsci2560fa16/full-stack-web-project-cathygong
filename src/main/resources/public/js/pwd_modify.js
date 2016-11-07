@@ -7,7 +7,7 @@ function checkForm(form){
 	
 function checkOldpwd(){
 	var oldpwd = document.pwdForm.oldpwd;
-	if(oldpwd.value.length!=0){  
+	if(oldpwd.value.length!==0){  
 		return true;  
 	}else{  
 		alert("Please enter old password!");  
@@ -17,7 +17,7 @@ function checkOldpwd(){
 
 function checkNewpwd(){
 	var pwd = document.pwdForm.pwd;
-	if(pwd.value.length!=0){  
+	if(pwd.value.length!==0){  
 		return true;  
 	}else{  
 		alert("Please enter new password!");  
@@ -27,7 +27,7 @@ function checkNewpwd(){
 
 function checkReenterpwd(){
 	var pwd1 = document.pwdForm.pwd1;
-	if(pwd1.value.length!=0){  
+	if(pwd1.value.length!==0){  
 		return true;  
 	}else{  
 		alert("Please re-enter new password!");  

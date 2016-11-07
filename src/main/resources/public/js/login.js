@@ -8,7 +8,7 @@ function checkLogin(){
 //check user name  
 function checkUsername(){  
 	var username = document.loginForm.username;  
-	if(username.value.length!=0){  
+	if(username.value.length!==0){  
 		return true;  
 	}else{  
 		alert("Please enter password!");  
@@ -18,7 +18,7 @@ function checkUsername(){
 //check password  
 function checkPassword(){  
 	var password = document.loginForm.password;  
-	if(password.value.length!=0){  
+	if(password.value.length!==0){  
 		return true;  
 	}else{  
 		alert("Please enter password!");  
