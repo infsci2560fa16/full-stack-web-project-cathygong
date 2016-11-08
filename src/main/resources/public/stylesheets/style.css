@@ -45,7 +45,7 @@ a {
 	color: #FF6600;
 }
 .txt_grey {
-	font-family: "����";
+	font-family: "Arial";
 	font-size: 9pt;
 	color: #333333;
 	border: 1px solid #999999;
@@ -61,7 +61,7 @@ input {
 	height:22px;
 	border-color:#15595C;
 	border-width:1px;}
-.wenbenkuang {
+.textbox {
 	font-family: "Arial";
 	font-size: 9pt;
 	color: #333333;
