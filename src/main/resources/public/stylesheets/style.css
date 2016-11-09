@@ -107,20 +107,3 @@ border-style:none;
 	border-right-style:none;
 	border-Top-style:none; 
 }
-.menuitems1{
-	margin:2px;padding:1px;word-break:keep-all;background-image:url("Images/item_out.gif");
-}
-div.quote{margin:5px 20px;border:1px solid #8492b9;padding:5px;background:#8492b9 ;line-height : normal ;
-}
-div.HtmlCode{margin:5px 20px;border:1px solid #AAAAAA;padding:5px; background:#FDFDDF ;
-font-size:12px;font-family:Tahoma;font-style : oblique;line-height : normal ;font-weight:bold;
-}
-.menuskin {
-	BORDER: #666666 1px solid; VISIBILITY: hidden;
-	POSITION: absolute; 
-	/*BACKGROUND-COLOR:#EFEFEF;*/
-	background-image:url("../Images/item_out.gif");
-	background-repeat : repeat-y;
-    Filter: Alpha(Opacity=85);
-	}
--->
