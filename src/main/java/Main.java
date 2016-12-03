@@ -41,10 +41,16 @@ public class Main {
         //ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
         ResultSet rs = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'TRUE' order by book_owner.post_date desc limit 3");
 
+
         ArrayList<String> output = new ArrayList<String>();
         while (rs.next()) {
           //output.add( "Read from DB: " + rs.getTimestamp("tick"));
           output.add( "Read from DB: " + rs.getString("bname"));
+        }
+        
+        rs = stmt.executeQuery("SELECT tick FROM ticks");
+        while (rs.next()) {
+          output.add( "Read from DB: " + rs.getTimestamp("tick"));
         }
 
         attributes.put("results", output);
@@ -75,7 +81,6 @@ public class Main {
       ArrayList<String> sale_pittid = new ArrayList<String>();
       ArrayList<String> sale_postdate = new ArrayList<String>();
 
-
     while(book_sale.next())
     {
        sale_bname.add(book_sale.getString("bname"));
@@ -86,14 +91,6 @@ public class Main {
        sale_pittid.add(book_sale.getString("pittid"));
        sale_postdate.add(book_sale.getString("post_date"));
      }
-     attributes.put("sale_bname",sale_bname);
-     attributes.put("sale_author",sale_author);
-     attributes.put("sale_edition",sale_edition);
-     attributes.put("sale_isbn13",sale_isbn13);
-     attributes.put("sale_isbn10",sale_isbn10);
-     attributes.put("sale_pittid",sale_pittid);
-     attributes.put("sale_postdate",sale_postdate);
-
 
       ResultSet book_need = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
       ArrayList<String> need_bname = new ArrayList<String>();
@@ -113,6 +110,16 @@ public class Main {
        need_pittid.add(book_need.getString("pittid"));
        need_postdate.add(book_need.getString("post_date"));
      }
+
+
+     attributes.put("sale_bname",sale_bname);
+     attributes.put("sale_author",sale_author);
+     attributes.put("sale_edition",sale_edition);
+     attributes.put("sale_isbn13",sale_isbn13);
+     attributes.put("sale_isbn10",sale_isbn10);
+     attributes.put("sale_pittid",sale_pittid);
+     attributes.put("sale_postdate",sale_postdate);
+
      attributes.put("need_bname",need_bname);
      attributes.put("need_author",need_author);
      attributes.put("need_edition",need_edition);
