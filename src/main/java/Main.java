@@ -48,9 +48,9 @@ public class Main {
           output.add( "Read from DB: " + rs.getString("bname"));
         }
         
-        rs = stmt.executeQuery("SELECT tick FROM ticks");
+        rs = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
         while (rs.next()) {
-          output.add( "Read from DB: " + rs.getTimestamp("tick"));
+          output.add( "Read from DB: " + rs.getString("tick"));
         }
 
         attributes.put("results", output);
@@ -80,6 +80,13 @@ public class Main {
       ArrayList<String> sale_isbn10 = new ArrayList<String>();
       ArrayList<String> sale_pittid = new ArrayList<String>();
       ArrayList<String> sale_postdate = new ArrayList<String>();
+      ArrayList<String> need_bname = new ArrayList<String>();
+      ArrayList<String> need_author = new ArrayList<String>();
+      ArrayList<String> need_edition = new ArrayList<String>();
+      ArrayList<String> need_isbn13 = new ArrayList<String>();
+      ArrayList<String> need_isbn10 = new ArrayList<String>();
+      ArrayList<String> need_pittid = new ArrayList<String>();
+      ArrayList<String> need_postdate = new ArrayList<String>();
 
     while(book_sale.next())
     {
@@ -92,14 +99,7 @@ public class Main {
        sale_postdate.add(book_sale.getString("post_date"));
      }
 
-      book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
-      ArrayList<String> need_bname = new ArrayList<String>();
-      ArrayList<String> need_author = new ArrayList<String>();
-      ArrayList<String> need_edition = new ArrayList<String>();
-      ArrayList<String> need_isbn13 = new ArrayList<String>();
-      ArrayList<String> need_isbn10 = new ArrayList<String>();
-      ArrayList<String> need_pittid = new ArrayList<String>();
-      ArrayList<String> need_postdate = new ArrayList<String>();
+    book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
     while(book_sale.next())
     {
        need_bname.add(book_sale.getString("bname"));
@@ -110,7 +110,6 @@ public class Main {
        need_pittid.add(book_sale.getString("pittid"));
        need_postdate.add(book_sale.getString("post_date"));
      }
-
 
      attributes.put("sale_bname",sale_bname);
      attributes.put("sale_author",sale_author);
