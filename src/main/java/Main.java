@@ -74,14 +74,7 @@ public class Main {
       ArrayList<String> sale_isbn10 = new ArrayList<String>();
       ArrayList<String> sale_pittid = new ArrayList<String>();
       ArrayList<String> sale_postdate = new ArrayList<String>();
-      // ResultSet book_need = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
-      // ArrayList<String> need_bname = new ArrayList<String>();
-      // ArrayList<String> need_author = new ArrayList<String>();
-      // ArrayList<String> need_edition = new ArrayList<String>();
-      // ArrayList<String> need_isbn13 = new ArrayList<String>();
-      // ArrayList<String> need_isbn10 = new ArrayList<String>();
-      // ArrayList<String> need_pittid = new ArrayList<String>();
-      // ArrayList<String> need_postdate = new ArrayList<String>();
+
 
     while(book_sale.next())
     {
@@ -101,23 +94,32 @@ public class Main {
      attributes.put("sale_pittid",sale_pittid);
      attributes.put("sale_postdate",sale_postdate);
 
-    // while(book_need.next())
-    // {
-    //    need_bname.add(book_need.getString("bname"));
-    //    need_author.add(book_need.getString("author"));
-    //    need_edition.add(book_need.getString("edition"));
-    //    need_isbn13.add(book_need.getString("isbn13"));
-    //    need_isbn10.add(book_need.getString("isbn10"));
-    //    need_pittid.add(book_need.getString("pittid"));
-    //    need_postdate.add(book_need.getString("post_date"));
-    //  }
-    //  attributes.put("need_bname",need_bname);
-    //  attributes.put("need_author",need_author);
-    //  attributes.put("need_edition",need_edition);
-    //  attributes.put("need_isbn13",need_isbn13);
-    //  attributes.put("need_isbn10",need_isbn10);
-    //  attributes.put("need_pittid",need_pittid);
-    //  attributes.put("need_postdate",need_postdate);
+
+      ResultSet book_need = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
+      ArrayList<String> need_bname = new ArrayList<String>();
+      ArrayList<String> need_author = new ArrayList<String>();
+      ArrayList<String> need_edition = new ArrayList<String>();
+      ArrayList<String> need_isbn13 = new ArrayList<String>();
+      ArrayList<String> need_isbn10 = new ArrayList<String>();
+      ArrayList<String> need_pittid = new ArrayList<String>();
+      ArrayList<String> need_postdate = new ArrayList<String>();
+    while(book_need.next())
+    {
+       need_bname.add(book_need.getString("bname"));
+       need_author.add(book_need.getString("author"));
+       need_edition.add(book_need.getString("edition"));
+       need_isbn13.add(book_need.getString("isbn13"));
+       need_isbn10.add(book_need.getString("isbn10"));
+       need_pittid.add(book_need.getString("pittid"));
+       need_postdate.add(book_need.getString("post_date"));
+     }
+     attributes.put("need_bname",need_bname);
+     attributes.put("need_author",need_author);
+     attributes.put("need_edition",need_edition);
+     attributes.put("need_isbn13",need_isbn13);
+     attributes.put("need_isbn10",need_isbn10);
+     attributes.put("need_pittid",need_pittid);
+     attributes.put("need_postdate",need_postdate);
      return new ModelAndView(attributes, "home.ftl");
      } catch (Exception e) {
      attributes.put("message", "There was an error: " + e);
