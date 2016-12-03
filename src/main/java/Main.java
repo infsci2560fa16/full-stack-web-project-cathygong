@@ -64,7 +64,7 @@ public class Main {
       Statement stmt = connection.createStatement();
       //stmt.executeUpdate("CREATE TABLE IF NOT EXISTS (user_email varchar(100),  user_password  varchar(30),  user_name  varchar(30) )");
     //  stmt.executeUpdate("INSERT INTO users_info VALUES ('user_email','user_password','user_name')");
-      ResultSet book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'TRUE' order by book_owner.post_date desc limit 3");
+      ResultSet book_sale = stmt.executeQuery("select * from userinfo cross join booklist cross join book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'TRUE' order by book_owner.post_date desc limit 3");
       ArrayList<String> sale_bname = new ArrayList<String>();
       ArrayList<String> sale_author = new ArrayList<String>();
       ArrayList<String> sale_edition = new ArrayList<String>();
@@ -72,7 +72,7 @@ public class Main {
       ArrayList<String> sale_isbn10 = new ArrayList<String>();
       ArrayList<String> sale_pittid = new ArrayList<String>();
       ArrayList<String> sale_postdate = new ArrayList<String>();
-      ResultSet book_need = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
+      ResultSet book_need = stmt.executeQuery("select * from userinfo cross join booklist cross join book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
       ArrayList<String> need_bname = new ArrayList<String>();
       ArrayList<String> need_author = new ArrayList<String>();
       ArrayList<String> need_edition = new ArrayList<String>();
