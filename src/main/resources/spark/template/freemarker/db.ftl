@@ -17,6 +17,12 @@
     </#list>
     </ul>
 
+    <ul>
+    <#list results2 as y>
+      <li> ${y} </li>
+    </#list>
+    </ul>
+
 </div>
 
 </body>

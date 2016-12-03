@@ -43,6 +43,7 @@ public class Main {
 
 
         ArrayList<String> output = new ArrayList<String>();
+        ArrayList<String> output2 = new ArrayList<String>();
         while (rs.next()) {
           //output.add( "Read from DB: " + rs.getTimestamp("tick"));
           output.add( "Read from DB: " + rs.getString("bname"));
@@ -50,10 +51,11 @@ public class Main {
         
         rs = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
         while (rs.next()) {
-          output.add( "Read from DB: " + rs.getString("bname"));
+          output2.add( "Read from DB: " + rs.getString("bname"));
         }
 
         attributes.put("results", output);
+        attributes.put("results2", output2);
         return new ModelAndView(attributes, "db.ftl");
       } catch (Exception e) {
         attributes.put("message", "There was an error: " + e);
