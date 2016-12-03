@@ -101,7 +101,7 @@ public class Main {
        sale_postdate.add(book_sale.getString("post_date"));
      }
 
-   book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'TRUE' order by book_owner.post_date desc limit 3");
+   book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
     while(book_sale.next())
     {
        sale_bname.add(book_sale.getString("bname"));
