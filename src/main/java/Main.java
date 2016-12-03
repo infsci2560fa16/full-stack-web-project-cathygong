@@ -102,16 +102,25 @@ public class Main {
      }
 
     book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
-    while(book_sale.next())
     {
-       need_bname.add(book_sale.getString("bname"));
-       need_author.add(book_sale.getString("author"));
-       need_edition.add(book_sale.getString("edition"));
-       need_isbn13.add(book_sale.getString("isbn13"));
-       need_isbn10.add(book_sale.getString("isbn10"));
-       need_pittid.add(book_sale.getString("pittid"));
-       need_postdate.add(book_sale.getString("post_date"));
-     }
+       sale_bname.add(book_sale.getString("bname"));
+       sale_author.add(book_sale.getString("author"));
+       sale_edition.add(book_sale.getString("edition"));
+       sale_isbn13.add(book_sale.getString("isbn13"));
+       sale_isbn10.add(book_sale.getString("isbn10"));
+       sale_pittid.add(book_sale.getString("pittid"));
+       sale_postdate.add(book_sale.getString("post_date"));
+     }    
+    // while(book_sale.next())
+    // {
+    //    need_bname.add(book_sale.getString("bname"));
+    //    need_author.add(book_sale.getString("author"));
+    //    need_edition.add(book_sale.getString("edition"));
+    //    need_isbn13.add(book_sale.getString("isbn13"));
+    //    need_isbn10.add(book_sale.getString("isbn10"));
+    //    need_pittid.add(book_sale.getString("pittid"));
+    //    need_postdate.add(book_sale.getString("post_date"));
+    //  }
 
      attributes.put("sale_bname",sale_bname);
      attributes.put("sale_author",sale_author);
