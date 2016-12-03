@@ -92,7 +92,7 @@ public class Main {
        sale_postdate.add(book_sale.getString("post_date"));
      }
 
-      ResultSet book_need = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
+      book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
       ArrayList<String> need_bname = new ArrayList<String>();
       ArrayList<String> need_author = new ArrayList<String>();
       ArrayList<String> need_edition = new ArrayList<String>();
@@ -100,15 +100,15 @@ public class Main {
       ArrayList<String> need_isbn10 = new ArrayList<String>();
       ArrayList<String> need_pittid = new ArrayList<String>();
       ArrayList<String> need_postdate = new ArrayList<String>();
-    while(book_need.next())
+    while(book_sale.next())
     {
-       need_bname.add(book_need.getString("bname"));
-       need_author.add(book_need.getString("author"));
-       need_edition.add(book_need.getString("edition"));
-       need_isbn13.add(book_need.getString("isbn13"));
-       need_isbn10.add(book_need.getString("isbn10"));
-       need_pittid.add(book_need.getString("pittid"));
-       need_postdate.add(book_need.getString("post_date"));
+       need_bname.add(book_sale.getString("bname"));
+       need_author.add(book_sale.getString("author"));
+       need_edition.add(book_sale.getString("edition"));
+       need_isbn13.add(book_sale.getString("isbn13"));
+       need_isbn10.add(book_sale.getString("isbn10"));
+       need_pittid.add(book_sale.getString("pittid"));
+       need_postdate.add(book_sale.getString("post_date"));
      }
 
 
