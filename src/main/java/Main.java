@@ -55,6 +55,76 @@ public class Main {
       }
     }, new FreeMarkerEngine());
 
+    get("/home", (req, res) ->
+    {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+      try{
+      connection = DatabaseUrl.extract().getConnection();
+      Statement stmt = connection.createStatement();
+      //stmt.executeUpdate("CREATE TABLE IF NOT EXISTS (user_email varchar(100),  user_password  varchar(30),  user_name  varchar(30) )");
+    //  stmt.executeUpdate("INSERT INTO users_info VALUES ('user_email','user_password','user_name')");
+      ResultSet book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'TRUE' order by book_owner.post_time desc limit 3");
+      ArrayList<String> sale_bname = new ArrayList<String>();
+      ArrayList<String> sale_author = new ArrayList<String>();
+      ArrayList<String> sale_edition = new ArrayList<String>();
+      ArrayList<String> sale_isbn13 = new ArrayList<String>();
+      ArrayList<String> sale_isbn10 = new ArrayList<String>();
+      ArrayList<String> sale_pittid = new ArrayList<String>();
+      ArrayList<String> sale_postdate = new ArrayList<String>();
+      ResultSet book_need = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_time desc limit 3");
+      ArrayList<String> need_bname = new ArrayList<String>();
+      ArrayList<String> need_author = new ArrayList<String>();
+      ArrayList<String> need_edition = new ArrayList<String>();
+      ArrayList<String> need_isbn13 = new ArrayList<String>();
+      ArrayList<String> need_isbn10 = new ArrayList<String>();
+      ArrayList<String> need_pittid = new ArrayList<String>();
+      ArrayList<String> need_postdate = new ArrayList<String>();
+
+    while(book_sale.next())
+    {
+       sale_bname.add(book_sale.getString("booklist.bname"));
+       sale_author.add(book_sale.getString("booklist.author"));
+       sale_edition.add(book_sale.getString("booklist.edition"));
+       sale_isbn13.add(book_sale.getString("booklist.isbn13"));
+       sale_isbn10.add(book_sale.getString("booklist.isbn10"));
+       sale_pittid.add(book_sale.getString("userinfo.pittid"));
+       sale_postdate.add(book_sale.getString("book_owner.post_date"));
+     }
+     attributes.put("sale_bname",sale_bname);
+     attributes.put("sale_author",sale_author);
+     attributes.put("sale_edition",sale_edition);
+     attributes.put("sale_isbn13",sale_isbn13);
+     attributes.put("sale_isbn10",sale_isbn10);
+     attributes.put("sale_pittid",sale_pittid);
+     attributes.put("sale_postdate",sale_postdate);
+
+    while(book_need.next())
+    {
+       need_bname.add(book_need.getString("booklist.bname"));
+       need_author.add(book_need.getString("booklist.author"));
+       need_edition.add(book_need.getString("booklist.edition"));
+       need_isbn13.add(book_need.getString("booklist.isbn13"));
+       need_isbn10.add(book_need.getString("booklist.isbn10"));
+       need_pittid.add(book_need.getString("userinfo.pittid"));
+       need_postdate.add(book_need.getString("book_owner.post_date"));
+     }
+     attributes.put("need_bname",need_bname);
+     attributes.put("need_author",need_author);
+     attributes.put("need_edition",need_edition);
+     attributes.put("need_isbn13",need_isbn13);
+     attributes.put("need_isbn10",need_isbn10);
+     attributes.put("need_pittid",need_pittid);
+     attributes.put("need_postdate",need_postdate);
+     return new ModelAndView(attributes, "home.ftl");
+     } catch (Exception e) {
+     attributes.put("message", "There was an error: " + e);
+     return new ModelAndView(attributes, "error.ftl");
+     } finally {
+     if (connection != null) try{connection.close();} catch(SQLException e){}
+    }}, new FreeMarkerEngine());
+    
+
   }
 
 }
