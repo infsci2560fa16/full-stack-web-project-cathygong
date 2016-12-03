@@ -39,12 +39,12 @@ public class Main {
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
         stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
         //ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-        ResultSet rs = stmt.executeQuery("SELECT * FROM booklist");
+        ResultSet rs = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'TRUE' order by book_owner.post_date desc limit 3");
 
         ArrayList<String> output = new ArrayList<String>();
         while (rs.next()) {
           //output.add( "Read from DB: " + rs.getTimestamp("tick"));
-          output.add( "Read from DB: " + rs.getString("bname"));
+          output.add( "Read from DB: " + rs.getString("booklist.bname"));
         }
 
         attributes.put("results", output);
