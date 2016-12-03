@@ -68,17 +68,7 @@
                 <td style="width:10%"><b>Requester ID</b></td>
                 <td style="width:10%"><b>Post Time</b></td>
               </tr>
-        <#list 0..need_bname?size-1 as i>
-              <tr>
-                <td style="height:25px; text-align:center">${need_bname[i]}</td>
-                <td style="text-align:center">${need_edition[i]}</td>
-                <td style="text-align:center">${need_author[i]}</td>
-                <td style="text-align:center">${need_isbn13[i]}</td>
-                <td style="text-align:center">${need_isbn10[i]}</td>
-                <td style="text-align:center">${need_pittid[i]}</td>
-                <td style="text-align:center">${need_postdate[i]}</td>
-              </tr>
-        </#list>
+
             </table></td>
           </tr>
           <tr style="height:25px; text-align:center">
