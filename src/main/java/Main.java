@@ -51,7 +51,7 @@ public class Main {
         
         rs = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
         while (rs.next()) {
-          output2.add( "Read from DB: " + rs.getString("bname"));
+          output2.add( "Read from DB: " + rs.getString("author"));
         }
 
         attributes.put("results", output);
@@ -74,7 +74,7 @@ public class Main {
       Statement stmt = connection.createStatement();
       //stmt.executeUpdate("CREATE TABLE IF NOT EXISTS (user_email varchar(100),  user_password  varchar(30),  user_name  varchar(30) )");
     //  stmt.executeUpdate("INSERT INTO users_info VALUES ('user_email','user_password','user_name')");
-      ResultSet book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'false' order by book_owner.post_date desc limit 3");
+      ResultSet book_sale = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status not true order by book_owner.post_date desc limit 3");
       ArrayList<String> sale_bname = new ArrayList<String>();
       ArrayList<String> sale_author = new ArrayList<String>();
       ArrayList<String> sale_edition = new ArrayList<String>();
