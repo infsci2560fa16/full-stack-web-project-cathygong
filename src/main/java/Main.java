@@ -50,7 +50,7 @@ public class Main {
         
         rs = stmt.executeQuery("select * from userinfo, booklist, book_owner where booklist.bid=book_owner.bid and userinfo.uid=book_owner.uid and book_owner.status = 'FALSE' order by book_owner.post_date desc limit 3");
         while (rs.next()) {
-          output.add( "Read from DB: " + rs.getString("tick"));
+          output.add( "Read from DB: " + rs.getString("bname"));
         }
 
         attributes.put("results", output);
