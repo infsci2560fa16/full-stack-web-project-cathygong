@@ -275,31 +275,6 @@ public class Main {
         }
       });
 
-    post("/login", (req, res) -> {
-           Connection connection = null;
-              try {
-                  connection = DatabaseUrl.extract().getConnection();
-                  JSONObject obj = new JSONObject(req.body());
-                  String uname = obj.getString("uname");
-                  String password = obj.getString("password");
-
-                  String sql = "INSERT INTO userinfo (uname,pittid,email,phonenum,address,password) VALUES ('"
-                                + uname + "','" + pittid + "','"+ email + "','"+ phonenum + "','"+ address 
-                                + "','"+ password + "')";
-                                
-                  connection = DatabaseUrl.extract().getConnection();
-                  Statement stmt = connection.createStatement();
-                  //stmt.executeUpdate("CREATE TABLE IF NOT EXISTS User");
-                  stmt.executeUpdate(sql);
-
-                 return req.body();
-                } catch (Exception e) {
-                  return e.getMessage();
-                } finally {
-
-                }
-              });
-
   }
 
 }
