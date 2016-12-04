@@ -240,7 +240,7 @@ public class Main {
      if (connection != null) try{connection.close();} catch(SQLException e){}
     }}, new FreeMarkerEngine());
     
-    post("api/register", (req, res) -> {
+    post("/api/register", (req, res) -> {
            Connection connection = null;
               try {
                   connection = DatabaseUrl.extract().getConnection();

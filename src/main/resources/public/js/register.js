@@ -2,8 +2,6 @@ window.onload = init;
 
 $(function(){
         $("#submit").click(function(){
-
-
       var uname = $("#uname").val();
       var password = $("#password").val();
       var email = $("email").val();
