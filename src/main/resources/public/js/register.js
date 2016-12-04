@@ -1,4 +1,63 @@
-function checkForm(form){
+window.onload = init;
+
+$(function(){
+        $("#submit").click(function(){
+
+
+      var uname = $("#uname").val();
+      var password = $("#password").val();
+      var email = $("email").val();
+      var pittid = $("pittid").val();
+      var phonenum = $("phonenum").val();
+      var address = $("address").val();
+
+      var info = JSON.stringify({"uname":uname,"pittid":pittid,"email":email,"password":password,"phonenum":phonenum,"address":address});
+              $.ajax({
+                  contentType:'application/json',
+                  url: '/api/register',
+                  type: "POST",
+                  datatype: "json",
+                  data: obj,
+                  success: function(data) {
+                      alert("Welcome! You have registered successfully!");
+                      window.location.href='/home';
+											console.log(data);
+                  }
+              });
+                    return false;
+          });
+   });
+
+
+function init() {
+	
+}
+
+function setControls() {
+	//Populating the array with objects
+	//containing default texts and corresponding validation functions
+	var setupArray = [
+         {
+		 	defaultText: '6-12 characters',
+		    validate: checkUsername
+		 },
+         {
+		 	defaultText: 'Enter your Pitt ID',
+		    validate: checkID
+		 },
+		 {
+		 	defaultText: '6-18 characters',
+			validate: checkPwd
+		 },
+		 {
+		 	defaultText: 'Enter valid email address',
+		    validate: checkEmail
+		 },
+	];
+}
+
+
+function checkRegister(){
 	if(checkID() && checkName() && checkEmail() && checkPwd() && checkReenterpwd() && checkEqupwd()){  
 		 return true;  
 	 }          

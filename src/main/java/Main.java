@@ -240,7 +240,7 @@ public class Main {
      if (connection != null) try{connection.close();} catch(SQLException e){}
     }}, new FreeMarkerEngine());
     
-    post("/RegisterServlet", (req, res) -> {
+    post("api/register", (req, res) -> {
            Connection connection = null;
               try {
                   connection = DatabaseUrl.extract().getConnection();
@@ -258,6 +258,37 @@ public class Main {
                                 
                   connection = DatabaseUrl.extract().getConnection();
                   Statement stmt = connection.createStatement();
+                  stmt.executeUpdate(sql);
+
+                  ResultSet rs = stmt.executeQuery("SELECT * FROM userinfo where pittid ='" + pittid + "'");
+                  Map<String, Object> attributes = new HashMap<>();
+
+					        attributes.put("uname", rs.getString("uname"));
+                  attributes.put("pittid", rs.getString("pittid"));
+					        attributes.put("email", rs.getString("email"));
+
+                  return attributes;
+        } catch (Exception e) {
+          return e.getMessage();
+        } finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+      });
+
+    post("/login", (req, res) -> {
+           Connection connection = null;
+              try {
+                  connection = DatabaseUrl.extract().getConnection();
+                  JSONObject obj = new JSONObject(req.body());
+                  String uname = obj.getString("uname");
+                  String password = obj.getString("password");
+
+                  String sql = "INSERT INTO userinfo (uname,pittid,email,phonenum,address,password) VALUES ('"
+                                + uname + "','" + pittid + "','"+ email + "','"+ phonenum + "','"+ address 
+                                + "','"+ password + "')";
+                                
+                  connection = DatabaseUrl.extract().getConnection();
+                  Statement stmt = connection.createStatement();
                   //stmt.executeUpdate("CREATE TABLE IF NOT EXISTS User");
                   stmt.executeUpdate(sql);
 
@@ -268,7 +299,6 @@ public class Main {
 
                 }
               });
-
 
   }
 
