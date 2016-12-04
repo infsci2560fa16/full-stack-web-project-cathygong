@@ -1,13 +1,18 @@
-window.onload = init;
 
 $(document).ready(function(){
         $("#submit").click(function(){
-      var uname = $("#uname").val();
-      var password = $("#password").val();
-      var email = $("email").val();
-      var pittid = $("pittid").val();
-      var phonenum = $("phonenum").val();
-      var address = $("address").val();
+      var uname = document.getElementById("uname").value;
+      var password = document.getElementById("password").value;
+      var email = document.getElementById("email").value;
+      var pittid = document.getElementById("pittid").value;
+      var phonenum = document.getElementById("phonenum").value;	
+	  var address = document.getElementById("address").value;	    
+	//   var uname = $("#uname").val();
+    //   var password = $("#password").val();
+    //   var email = $("email").val();
+    //   var pittid = $("pittid").val();
+    //   var phonenum = $("phonenum").val();
+    //   var address = $("address").val();
 
       var info = JSON.stringify({"uname":uname,"pittid":pittid,"email":email,"password":password,"phonenum":phonenum,"address":address});
               $.ajax({
@@ -15,44 +20,17 @@ $(document).ready(function(){
                   url: '/api/register',
                   type: "POST",
                   datatype: "json",
-                  data: obj,
+                  data: info,
                   success: function(data) {
                       alert("Welcome! You have registered successfully!");
                       window.location.href='/home';
-											console.log(data);
+					  console.log(data);
                   }
               });
                     return false;
           });
    });
 
-
-function init() {
-	
-}
-
-function setControls() {
-	//Populating the array with objects
-	//containing default texts and corresponding validation functions
-	var setupArray = [
-         {
-		 	defaultText: '6-12 characters',
-		    validate: checkUsername
-		 },
-         {
-		 	defaultText: 'Enter your Pitt ID',
-		    validate: checkID
-		 },
-		 {
-		 	defaultText: '6-18 characters',
-			validate: checkPwd
-		 },
-		 {
-		 	defaultText: 'Enter valid email address',
-		    validate: checkEmail
-		 },
-	];
-}
 
 
 function checkRegister(){
