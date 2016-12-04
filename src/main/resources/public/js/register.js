@@ -22,7 +22,7 @@ function test(){
                   data: info,
                   success: function(data) {
                       alert("Welcome! You have registered successfully!");
-                      window.location.href='/home';
+                      window.location.href='/login.html';
                   }
               });
           }
