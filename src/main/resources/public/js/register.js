@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-        $("#submit").click(function(){
+        $('#submit_form').click(function(){
       var uname = document.getElementById("uname").value;
       var password = document.getElementById("password").value;
       var email = document.getElementById("email").value;
@@ -26,10 +26,8 @@ $(document).ready(function(){
                       window.location.href='/home';
                   }
               });
-                    return false;
           });
    });
-
 
 
 function checkRegister(){
