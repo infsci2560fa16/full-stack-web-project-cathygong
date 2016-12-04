@@ -15,6 +15,7 @@ $(document).ready(function(){
     //   var address = $("address").val();
 
       var info = JSON.stringify({"uname":uname,"pittid":pittid,"email":email,"password":password,"phonenum":phonenum,"address":address});
+	  alert(info);
               $.ajax({
                   contentType:'application/json',
                   url: '/api/register',
