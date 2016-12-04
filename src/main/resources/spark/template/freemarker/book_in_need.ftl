@@ -66,9 +66,6 @@
         </#list>
             </table></td>
           </tr>
-          <tr style="height:25px; text-align:center">
-              <td style="color:blue">Note: These will be read from database at the final version.</td>
-          </tr>
           <tr>
             <td style="height:19px; background-image:url(Images/book_on_sale_2.gif);">&nbsp;</td>
           </tr>

@@ -6,7 +6,7 @@ function checkForm(form){
 }	
 	
 function checkID(){
-	var id = document.registerForm.id;
+	var id = document.registerForm.pittid;
 	if(id.value.length!==0){  
 		return true;  
 	}else{  
@@ -16,7 +16,7 @@ function checkID(){
 }
 
 function checkName(){
-	var name = document.registerForm.name;
+	var name = document.registerForm.uname;
 	if(name.value.length!==0){  
 		return true;  
 	}else{  
@@ -36,7 +36,7 @@ function checkEmail(){
 }
 
 function checkPwd(){
-	var pwd = document.registerForm.pwd;
+	var pwd = document.registerForm.password;
 	if(pwd.value.length!==0){  
 		return true;  
 	}else{  

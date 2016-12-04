@@ -12,6 +12,9 @@ import spark.ModelAndView;
 import static spark.Spark.get;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
+import org.json.JSONObject;
+import com.google.gson.Gson;
+import java.util.Date;
 
 public class Main {
 
@@ -20,13 +23,21 @@ public class Main {
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
 
-    get("/hello", (req, res) -> "Hello World");
+    // get("/hello", (req, res) -> "Hello World");
+
+    // get("/", (request, response) -> {
+    //         Map<String, Object> attributes = new HashMap<>();
+    //         attributes.put("message", "Hello World!");
+
+    //         return new ModelAndView(attributes, "index.ftl");
+    //     }, new FreeMarkerEngine());
+
 
     get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("message", "Hello World!");
 
-            return new ModelAndView(attributes, "index.ftl");
+            return new ModelAndView(attributes, "login.ftl");
         }, new FreeMarkerEngine());
 
     get("/db", (req, res) -> {
@@ -230,6 +241,35 @@ public class Main {
      if (connection != null) try{connection.close();} catch(SQLException e){}
     }}, new FreeMarkerEngine());
     
+    post("/register", (req, res) -> {
+           Connection connection = null;
+              try {
+                  connection = DatabaseUrl.extract().getConnection();
+                  JSONObject obj = new JSONObject(req.body());
+                  String uname = obj.getString("uname");
+                  String password = obj.getString("password");
+                  String pittid = obj.getString("pittid");
+                  String email = obj.getString("email");
+                  String phonenum = obj.getString("phonenum");
+                  String address = obj.getString("address");
+
+                  String sql = "INSERT INTO userinfo (uname,pittid,email,phonenum,address,password) VALUES ('"
+                                + uname + "','" + pittid + "','"+ email + "','"+ phonenum + "','"+ address 
+                                + "','"+ password + "')";
+                                
+                  connection = DatabaseUrl.extract().getConnection();
+                  Statement stmt = connection.createStatement();
+                  //stmt.executeUpdate("CREATE TABLE IF NOT EXISTS User");
+                  stmt.executeUpdate(sql);
+
+                 return req.body();
+                } catch (Exception e) {
+                  return e.getMessage();
+                } finally {
+
+                }
+              });
+
 
   }
 
