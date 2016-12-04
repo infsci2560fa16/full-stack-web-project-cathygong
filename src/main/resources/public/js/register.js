@@ -90,7 +90,7 @@ function checkReenterpwd(){
 }
 
 function checkEqupwd(){
-	var pwd = document.registerForm.pwd;
+	var pwd = document.registerForm.password;
 	var pwd2 = document.registerForm.pwd2;
 	if(pwd.value==pwd2.value){  
 		return true;  
