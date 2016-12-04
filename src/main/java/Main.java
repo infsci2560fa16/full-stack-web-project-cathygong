@@ -14,7 +14,6 @@ import static spark.Spark.get;
 import com.heroku.sdk.jdbc.DatabaseUrl;
 import org.json.JSONObject;
 import com.google.gson.Gson;
-import java.util.Date;
 
 public class Main {
 
