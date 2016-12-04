@@ -1,6 +1,4 @@
-
-$(document).ready(function(){
-        $('#submit_form').click(function(){
+function test(){
       var uname = document.getElementById("uname").value;
       var password = document.getElementById("password").value;
       var email = document.getElementById("email").value;
@@ -27,8 +25,7 @@ $(document).ready(function(){
                       window.location.href='/home';
                   }
               });
-          });
-   });
+          }
 
 
 function checkRegister(){
