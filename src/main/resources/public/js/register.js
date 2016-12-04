@@ -24,7 +24,6 @@ $(document).ready(function(){
                   success: function(data) {
                       alert("Welcome! You have registered successfully!");
                       window.location.href='/home';
-					  console.log(data);
                   }
               });
                     return false;
