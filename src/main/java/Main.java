@@ -244,7 +244,10 @@ public class Main {
            Connection connection = null;
               try {
                   connection = DatabaseUrl.extract().getConnection();
-                  JSONObject obj = new JSONObject(req.body());
+                  Statement stmt = connection.createStatement();
+                  ResultSet rs = stmt.executeQuery("SELECT max(uid) FROM userinfo");
+                  Integer uid = rs.getInt(1)+1;
+                  
                   String uname = obj.getString("uname");
                   String password = obj.getString("password");
                   String pittid = obj.getString("pittid");
@@ -252,20 +255,20 @@ public class Main {
                   String phonenum = obj.getString("phonenum");
                   String address = obj.getString("address");
 
-                  String sql = "INSERT INTO userinfo (uname,pittid,email,phonenum,address,password) VALUES ('"
-                                + uname + "','" + pittid + "','"+ email + "','"+ phonenum + "','"+ address 
-                                + "','"+ password + "')";
+                  String sql = "INSERT INTO userinfo (uid,uname,pittid,email,phonenum,address,password) VALUES ('"
+                                + uid + "','" + uname + "','" + pittid + "','"+ email + "','"+ phonenum + "','"
+                                + address + "','"+ password + "')";
                                 
                   connection = DatabaseUrl.extract().getConnection();
                   Statement stmt = connection.createStatement();
                   stmt.executeUpdate(sql);
 
-                  ResultSet rs = stmt.executeQuery("SELECT * FROM userinfo where pittid ='" + pittid + "'");
-                  Map<String, Object> attributes = new HashMap<>();
+                  // ResultSet rs = stmt.executeQuery("SELECT * FROM userinfo where pittid ='" + pittid + "'");
+                  // Map<String, Object> attributes = new HashMap<>();
 
-					        attributes.put("uname", rs.getString("uname"));
-                  attributes.put("pittid", rs.getString("pittid"));
-					        attributes.put("email", rs.getString("email"));
+					        // attributes.put("uname", rs.getString("uname"));
+                  // attributes.put("pittid", rs.getString("pittid"));
+					        // attributes.put("email", rs.getString("email"));
 
                   return attributes;
         } catch (Exception e) {
