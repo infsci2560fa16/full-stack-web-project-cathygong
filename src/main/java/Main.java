@@ -244,10 +244,12 @@ public class Main {
            Connection connection = null;
               try {
                   connection = DatabaseUrl.extract().getConnection();
+                  System.out.println(req.body());
+                  JSONObject obj = new JSONObject(req.body());
                   Statement stmt = connection.createStatement();
                   ResultSet rs = stmt.executeQuery("SELECT max(uid) FROM userinfo");
                   Integer uid = rs.getInt(1)+1;
-                  
+
                   String uname = obj.getString("uname");
                   String password = obj.getString("password");
                   String pittid = obj.getString("pittid");
@@ -258,9 +260,6 @@ public class Main {
                   String sql = "INSERT INTO userinfo (uid,uname,pittid,email,phonenum,address,password) VALUES ('"
                                 + uid + "','" + uname + "','" + pittid + "','"+ email + "','"+ phonenum + "','"
                                 + address + "','"+ password + "')";
-                                
-                  connection = DatabaseUrl.extract().getConnection();
-                  Statement stmt = connection.createStatement();
                   stmt.executeUpdate(sql);
 
                   // ResultSet rs = stmt.executeQuery("SELECT * FROM userinfo where pittid ='" + pittid + "'");
@@ -270,13 +269,13 @@ public class Main {
                   // attributes.put("pittid", rs.getString("pittid"));
 					        // attributes.put("email", rs.getString("email"));
 
-                  return attributes;
-        } catch (Exception e) {
+       return req.body();
+       } catch (Exception e) {
+         System.err.println("Exception: "+ e);
           return e.getMessage();
-        } finally {
-          if (connection != null) try{connection.close();} catch(SQLException e){}
-        }
-      });
+       } finally {
+        if (connection != null) try{connection.close();} catch(SQLException e){}
+      }});
 
   }
 
