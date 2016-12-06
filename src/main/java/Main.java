@@ -67,7 +67,6 @@ public class Main {
 
     get("/home", (req, res) ->
     {
-      System.out.println(req.body());
       Connection connection = null;
       Map<String, Object> attributes = new HashMap<>();
       try{
