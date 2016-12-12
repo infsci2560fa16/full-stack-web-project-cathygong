@@ -11,9 +11,9 @@
 		<table style="width:776px; float-align:center" >
   <tr>
     <td style="height:115px; text-align:right; vertical-align:bottom; background-color:#FD9C11; background-image:url(Images/banner.gif);">
-    <table style="width:100%"  >
+    <table style="width:100%">
       <tr>
-        <td style="height:26px; text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User: test</td>
+        <td style="height:26px; text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       </tr>
     </table></td>
   </tr>
@@ -53,21 +53,25 @@
                 <td style="width:10%"><b>Post Time</b></td>
               </tr>
         <#list 0..need_bname?size-1 as i>
+        <#if i<=2>
               <tr>
                 <td style="height:25px; text-align:center">${need_bname[i]}</td>
                 <td style="text-align:center">${need_edition[i]}</td>
                 <td style="text-align:center">${need_author[i]}</td>
                 <td style="text-align:center">${need_isbn13[i]}</td>
                 <td style="text-align:center">${need_isbn10[i]}</td>
-                <td style="text-align:center">${need_pittid[i]}</td>
+                <td style="text-align:center"><a href=/showowner/${need_pittid[i]} class="a3">${need_pittid[i]}</a></td>
                 <td style="text-align:center">${need_postdate[i]}</td>
               </tr>
+        </#if>
         </#list>
             </table></td>
           </tr>
           <tr>
             <td  style="height:25px; text-align:right">
-              <a href="book_in_need.html" class="a">More...</a>&nbsp;&nbsp;</td>
+            
+              <a href="book_in_need" class="a">More...</a>&nbsp;&nbsp;</td>
+            
           </tr>
           <tr>
             <td style="height:19px; background-image:url(Images/book_on_sale_2.gif);">&nbsp;</td>
@@ -87,25 +91,29 @@
                 <td style="width:25%"><b>Author</b></td>
                 <td style="width:10%"><b>ISBN-13</b></td>
                 <td style="width:10%"><b>ISBN-10</b></td>
-                <td style="width:10%"><b>Requester ID</b></td>
+                <td style="width:10%"><b>Seller ID</b></td>
                 <td style="width:10%"><b>Post Time</b></td>
               </tr>
         <#list 0..sale_bname?size-1 as j>
+        <#if j<=2>
               <tr>
                 <td style="height:25px; text-align:center">${sale_bname[j]}</td>
                 <td style="text-align:center">${sale_edition[j]}</td>
                 <td style="text-align:center">${sale_author[j]}</td>
                 <td style="text-align:center">${sale_isbn13[j]}</td>
                 <td style="text-align:center">${sale_isbn10[j]}</td>
-                <td style="text-align:center">${sale_pittid[j]}</td>
+                <td style="text-align:center"><a href=/showowner/${sale_pittid[j]} class="a3">${sale_pittid[j]}</a></td>
                 <td style="text-align:center">${sale_postdate[j]}</td>
               </tr>
+        </#if>
         </#list>
             </table></td>
           </tr>
           <tr>
             <td style="height:25px; text-align:right">
+            
               <a href="book_on_sale.html" class="a">More...</a>&nbsp;&nbsp;</td>
+           
           </tr>
           <tr>
             <td style="height:19px; background-image:url(Images/book_on_sale_2.gif);">&nbsp;</td>

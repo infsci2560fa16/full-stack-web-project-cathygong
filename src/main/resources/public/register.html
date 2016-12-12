@@ -57,36 +57,68 @@
                             <table style="width:600px; height:300px; background-color:#FFFFFF" >
                               <tr>
                                 <td style="width:173px; text-align:center">Pitt ID</td>
-                                <td style="width:427px; height:39px"><input name="pittid" type="text" id="pittid" size="50"> * </td>
+                                <td style="width:427px; height:39px"><input name="pittid" class="required" type="text" id="pittid" size="50"> * </td>
+                              </tr>
+                              <tr>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                                <td style="height:20px; text-align:center" id="errPittid" class="errText"></td>
                               </tr>
                               <tr>
                                 <td style="text-align:center">Name</td>
-                                <td style="height:39px"><input name="uname" type="text" id="uname" size="50"> * </td>
+                                <td style="height:39px"><input name="uname" class="required" type="text" id="uname" size="50"> * </td>
+                              </tr>
+                              <tr>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                                <td style="height:20px; text-align:center" id="errUname" class="errText"></td>
                               </tr>
                               <tr>
                                 <td style="text-align:center">Email</td>
-                                <td style="height:39px"><input name="email" type="text" id="email" size="50"> * </td>
+                                <td style="height:39px"><input name="email" class="required" type="text" id="email" size="50"> * </td>
+                              </tr>
+                              <tr>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                                <td style="height:20px; text-align:center" id="errEmail" class="errText"></td>
                               </tr>
                               <tr>
                                 <td style="text-align:center">Phone Number</td>
                                 <td style="height:39px"><input name="phonenum" type="text" id="phonenum" size="50"> </td>
                               </tr>
                               <tr>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                                <td style="height:20px; text-align:center">&nbsp;</td>
+                              </tr>                              
+                              <tr>
                                 <td style="text-align:center">Address</td>
                                 <td style="height:39px"><input name="address" type="text" id="address" size="50"> </td>
                               </tr>
                               <tr>
-                                <td style="text-align:center">Password</td>
-                                <td style="height:39px"><input name="password" type="password" id="password" size="50"> * </td>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                                <td style="height:20px; text-align:center">&nbsp;</td>
                               </tr>
                               <tr>
-                                <td style="text-align:center">Re-enter Password</td>
-                                <td style="height:39px"><input name="pwd2" type="password" id="pwd2" size="50"> * </td>
+                                <td style="text-align:center">Password</td>
+                                <td style="height:39px"><input name="password" class="required" type="password" id="password" size="50"> * </td>
                               </tr>
+                              <tr>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                                <td style="height:20px; text-align:center" id="errPwd" class="errText"></td>
+                              </tr>                              
+                              <tr>
+                                <td style="text-align:center">Re-enter Password</td>
+                                <td style="height:39px"><input name="pwd2" class="required" type="password" id="pwd2" size="50"> * </td>
+                              </tr>
+                              <tr>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                                <td style="height:20px; text-align:center" id="errPwd2" class="errText"></td>
+                              </tr>            
+                               <tr>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                                <td style="width:173px; text-align:center">&nbsp;</td>
+                              </tr>                                               
                               <tr>
                                 <td style="text-align:center">&nbsp;</td>
                                 <td>
-                                  <input name="submit" type="submit" class="btn_grey" value="Submit" id="submit_form" onclick="test()">&nbsp;&nbsp;&nbsp;
+                                  <input name="submit" type="submit" class="btn_grey" value="Submit" id="submit" onclick="register_submit()">&nbsp;&nbsp;&nbsp;
                                   <input name="cancel" type="button" class="btn_grey" value="Cancel" onClick="history.back();"></td>
                               </tr>
                             </table>

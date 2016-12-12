@@ -14,7 +14,7 @@
     <td style="height:115px; text-align:right; vertical-align:bottom; background-color:#FD9C11; background-image:url(Images/banner.gif);">
     <table style="width:100%">
       <tr>
-        <td style="height:26px; text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User: test</td>
+        <td style="height:26px; text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       </tr>
     </table></td>
   </tr>
@@ -60,8 +60,8 @@
                 <td style="text-align:center">${need_author[i]}</td>
                 <td style="text-align:center">${need_isbn13[i]}</td>
                 <td style="text-align:center">${need_isbn10[i]}</td>
-                <td style="text-align:center">${need_pittid[i]}</td>
-                <td style="text-align:center">${need_postdate[i]}</td>
+                <td style="text-align:center"><a href=/showowner/${need_pittid[i]} class="a3">${need_pittid[i]}</a></td>
+                <td style="ßtext-align:center">${need_postdate[i]}</td>
               </tr>
         </#list>
             </table></td>

@@ -4,31 +4,29 @@ function init() {
 	setControls();
 }
 
-function pwd_submit(){
+function delete_submit(){
       var pittid = document.getElementById("pittid").value;
-      var oldPwd = document.getElementById("oldPwd").value;
-	  var pwd = document.getElementById("pwd").value;
-	  var pwd2 = document.getElementById("pwd2").value;
+	  var password = document.getElementById("password").value;
 
-      var info = JSON.stringify({"pittid":pittid,"oldPwd":oldPwd,"pwd":pwd,"pwd2":pwd2});
+      var info = JSON.stringify({"pittid":pittid,"password":password});
 	  var textStatus;
 	  var jqXHR;
 	  //alert(info);
               $.ajax({
                   contentType:'application/json',
-                  url: '/api/pwd_modify',
+                  url: '/api/delete_account',
                   type: "POST",
                   datatype: "json",
                   data: info,
                   success: function(data, textStatus,jqXHR) {
 					  var result = JSON.parse(jqXHR.responseText);
 					  if(result.uid!==0){
-                       alert("Your password has been changed successfully!");
-                       window.location.href='/home';
+                       alert("Your account has been deleted successfully!");
+                       window.location.href='/login.html';
 				      }
 					  else{
-                      	alert("Wrong ID or old password, please check!");
-                      	window.location.href='/pwd_modify.html';						  
+                      	alert("Wrong ID or password, you can't delete this account!");
+                      	window.location.href='/delete_account.html';						  
 					  }
                   }
               });
@@ -43,17 +41,9 @@ function setControls() {
 		 	defaultText: 'Enter your Pitt ID',
 			validate: checkPittid
 		 },
-	     {
-		 	defaultText: '',
-			validate: checkOldPwd
-		 },
 		{
 		 	defaultText: '',
 			validate: checkPassword
-		 },
-		 {
-			 defaultText: '',
-			 validate: checkReenterpwd
 		 },		 
 	];
 
@@ -94,80 +84,32 @@ function checkPittid() {
 		errPittid.innerHTML='*Please enter your Pitt ID.';
 		errPittid.style.display='block';
 		return false;
-	}else if(pittid.value.length<4||pittid.value.length>6){
-		errPittid.innerHTML='*Please enter a valid Pitt ID.';
-		errPittid.style.display='block';
-		return false;
-		} 
+	} 
 	else {
 		errPittid.style.display='none';
 		return true;
 	}
 }
 
-function checkOldPwd() {
-	var oldPwd = document.getElementById('oldPwd');
-	var errOldPwd = document.getElementById('errOldPwd');
-	if (oldPwd.value === '') {
-		errOldPwd.innerHTML='*Please enter your old password';
-		errOldPwd.style.display='block';
-		return false;
-	} else if(oldPwd.value.length<3||oldPwd.value.length>15){
-		errOldPwd.innerHTML='*Please enter a valid old password:3-15 characters';
-		errOldPwd.style.display='block';
-		return false;
-		}
-	else {
-		errOldPwd.style.display='none';
-		return true;
-	}
-}
 
 function checkPassword() {
-	var password = document.getElementById('pwd');
+	var password = document.getElementById('password');
 	var errPwd = document.getElementById('errPwd');
 	if (password.value === '') {
 		errPwd.innerHTML='*Please enter new your password';
 		errPwd.style.display='block';
 		return false;
-	} else if(password.value.length<3||password.value.length>15){
-		errPwd.innerHTML='*Please enter a valid new password:3-15 characters';
-		errPwd.style.display='block';
-		return false;
-		}
+	}
 	else {
 		errPwd.style.display='none';
 		return true;
 	}
 }
 
-function checkReenterpwd(){
-	var pwd = document.getElementById('pwd');
-	var pwd2 = document.getElementById('pwd2');
-	var errPwd2 = document.getElementById('errPwd2');
-	if (pwd2.value === '') {
-		errPwd2.innerHTML='*Please re-enter your new password.';
-		errPwd2.style.display='block';
-		return false;
-	}
-	else if(pwd.value!==pwd2.value){
-		errPwd2.innerHTML='*New passwords do not match, please check!';
-		errPwd2.style.display='block';
-		return false;
-		} 
-	else {
-		errPwd2.style.display='none';
-		return true;
-	}
-
-}
-
-function checkPwdForm(){
+function checkDeleteForm(){
 		  var result = true;
 			result = checkPassword() && result;
-			result = checkOldPwd() && result;
 			result = checkPittid() && result;
-			result = checkReenterpwd() && result;
 			if(!result){
 				alert("Please fill in all information!");
 			}else{
